@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+</head>
+<body>
+
+<img data-src="../images/zelda_1.jpg" alt="zelda_1">
+<img data-src="../images/zelda_2.jpg" alt="zelda_2">
+<img data-src="../images/zombie_1.jpg" alt="zombie_1">
+
+<script>
+
+    // offsetTop 元素相对于其offsetParent的高度
+    // scrollTop 滚动条相对于文档顶部的高度
+    // offsetParent 只读属性，返回一个指向最近的（指包含层级上的最近）包含该元素的定位元素
+
+    // 当使用data-src标签替代src标签时，offsetTop必须动态获取
+    function getTop(el) {
+        let ot = el.offsetTop
+        while (el === el.offsetParent){
+            ot += el.offsetParent
+        }
+        return ot
+    }
+
+    function lazyLoad() {
+        let ch = document.documentElement.clientHeight
+        let st=document.documentElement.scrollTop || document.body.scrollTop
+        let images=document.getElementsByTagName('img')
+        let len=images.length
+        for(let i=0;i<len;i++){
+            if(ch+st>getTop(images[i])){
+                images[i].src=images[i].getAttribute('data-src')
+            }
+        }
+    }
+
+    window.onload = window.onscroll = () => {
+        lazyLoad()
+    }
+
+</script>
+
+</body>
+</html>

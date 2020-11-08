@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background-image结合伪类</title>
+    <style>
+        #img-box{
+            width: 1000px;
+            height: 500px;
+            background-image: url("../images/zelda_1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #img-box:hover{
+            background-image: url("../images/zelda_2.jpg");
+        }
+
+    </style>
+</head>
+<body>
+
+<!--当触发伪类时，伪类的图片才会被加载-->
+<!--触发hover，重排重绘时hover优先级更高-->
+<div id="img-box"></div>
+
+</body>
+</html>

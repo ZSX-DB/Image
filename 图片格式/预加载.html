@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预加载</title>
+    <style>
+        #none{
+            display: none;
+        }
+        #img-box{
+            width: 1000px;
+            height: 500px;
+            background-image: url("../images/zelda_1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #img-box:hover{
+            background-image: url("../images/zelda_2.jpg");
+        }
+        #img-box:active{
+            background-image: url("../images/zombie_1.jpg");
+        }
+    </style>
+</head>
+<body>
+
+<p>在background-image结合伪类.html中，我们触发hover会遇到白屏现象</p>
+<p>因此需要预加载</p>
+<p>img标签中的图片会被加载，因此可以使用这一特性</p>
+
+<!--使用css预加载-->
+<!--<div id="none">-->
+<!--    <img src="../images/zelda_2.jpg" alt="zelda_2.jpg">-->
+<!--</div>-->
+
+<div id="img-box"></div>
+
+<script>
+
+    // 使用js预加载
+    // let zombieImg=new Image()
+    // zombieImg.src="../images/zombie_1.jpg"
+
+    // 使用js预加载结合循环可以加载多张图片
+
+</script>
+
+</body>
+</html>

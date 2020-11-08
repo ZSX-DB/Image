@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo4</title>
+    <style>
+        .img-item {
+            display: block;
+            margin-top: 60px;
+            width: 1000px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<img class="img-item" src="../images/GULULU-milk.png" alt="GULULU-milk">
+<img class="img-item" src="../images/a6lgq-kfz0r.webp" alt="a6lgq-kfz0r">
+
+<!--<div class="img-list">-->
+<!--    <img class="img-item" data-src="../images/GULULU-milk.png" alt="GULULU-milk">-->
+<!--    <img class="img-item" data-src="../images/a6lgq-kfz0r.webp" alt="a6lgq-kfz0r">-->
+<!--</div>-->
+<div class="img-list">
+    <img class="img-item" data-src="../images/agkzk-wwcwq.webp" alt="agkzk-wwcwq">
+    <img class="img-item" data-src="../images/anboa-kk9n9.webp" alt="anboa-kk9n9">
+</div>
+<div class="img-list">
+    <img class="img-item" data-src="../images/zelda_1.jpg" alt="zelda_1">
+    <img class="img-item" data-src="../images/zelda_2.jpg" alt="zelda_2">
+</div>
+<div class="img-list">
+    <img class="img-item" data-src="../images/zombie_1.jpg" alt="zombie_1">
+    <img class="img-item" data-src="../images/wallhaven-g8g9o7.png" alt="wallhaven-g8g9o7">
+</div>
+
+
+
+<script>
+
+    // 当懒加载到图片时，会有短暂的白屏现象
+    // 如果一次只加载一张图片，白屏现象会频繁出现，我们可以设置一次加载多张图片
+    // 用外部的div将img标签包含在内，在对img标签设置一定的margin-top来预留加载时间
+
+
+
+    let imgList=Array.from(document.querySelectorAll('.img-list'))
+
+    let io = new IntersectionObserver(entries => {
+        entries.forEach(item => {
+            if (item.isIntersecting) {
+                item.target.children[0].src=item.target.children[0].dataset.src
+                item.target.children[1].src=item.target.children[1].dataset.src
+                io.unobserve(item.target)
+            }
+        })
+    })
+
+    imgList.forEach(div => io.observe(div))
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <style>
+        .img{
+            width: 1000px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<!--file协议多次请求同一张图片只加载1次-->
+<img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
+<img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
+<img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
+
+</body>
+</html>

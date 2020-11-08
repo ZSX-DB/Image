@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo3</title>
+    <style>
+        .img-item {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!--demo1和demo2实现了lazyLoad，但频繁触发onscroll事件，性能不好-->
+
+<!--第一张图片不设置img-item，一是起到占位符的作用，不让后面的图片在视窗内，二是为了让后面的图片方便筛选-->
+<img src="../images/GULULU-milk.png" alt="GULULU-milk">
+<!--这里的img-item是关键，使得img标签不在同一高度-->
+<img class="img-item" data-src="../images/a6lgq-kfz0r.webp" alt="a6lgq-kfz0r">
+<img class="img-item" data-src="../images/agkzk-wwcwq.webp" alt="agkzk-wwcwq">
+<img class="img-item" data-src="../images/anboa-kk9n9.webp" alt="anboa-kk9n9">
+<img class="img-item" data-src="../images/zelda_1.jpg" alt="zelda_1">
+<img class="img-item" data-src="../images/zelda_2.jpg" alt="zelda_2">
+<img class="img-item" data-src="../images/zombie_1.jpg" alt="zombie_1">
+
+
+<script>
+
+    let images = Array.from(document.querySelectorAll('.img-item'))
+
+    let io = new IntersectionObserver(entries => {
+        entries.forEach(item => {
+            // isIntersecting判断是否在视窗内，img-item使得不同的img不在同一高度
+            if (item.isIntersecting) {
+                item.target.src = item.target.dataset.src
+                // 停止观察
+                io.unobserve(item.target)
+            }
+        })
+    })
+
+    // 循环观察
+    images.forEach(img => io.observe(img))
+
+</script>
+
+
+</body>
+</html>

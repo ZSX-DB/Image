@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg使用1</title>
+    <style>
+
+
+        .img-box{
+            width: 300px;
+            height: 300px;
+            background-image: url("../images/flower_pot.svg");
+        }
+
+        .img{
+            width: 300px;
+
+            /*设置高度时，矢量图不会被压缩，位图则会*/
+            /*height: 100px;*/
+
+            /*通过img标签引入无法修改颜色*/
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+<!--可以通过背景图引入-->
+<div class="img-box"></div>
+
+<!--矢量图可通过img标签引用-->
+<img src="../images/flower_pot.svg" alt="flower_pot" class="img"><br>
+<img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
+
+</body>
+</html>

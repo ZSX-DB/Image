@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display为none</title>
+    <style>
+
+        .none {
+            display: none;
+        }
+
+        .img {
+            width: 1000px;
+            object-fit: cover;
+        }
+
+        .img-box {
+            width: 1000px;
+            height: 500px;
+            background-image: url("../images/agkzk-wwcwq.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+
+<p>浏览器在构建dom树遇到img标签时，会加载图片，遇到display:none;不会渲染</p>
+<p>当dom树和样式规格树构建渲染树时，遍历dom上的元素，发现元素对应的规则有background-image会加载图片，遇到display:none;不会渲染</p>
+
+<!--这里两个都会被渲染-->
+<!--<img src="../images/a6lgq-kfz0r.webp" alt="a6lgq-kfz0r.webp" class="img none">-->
+<!--<div class="img-box none"></div>-->
+
+<hr>
+
+<p>当父元素设置display:none;</p>
+<p>img标签经历步骤与上面一样</p>
+<p>父元素有display:none;时，不会遍历不可见元素的子元素，因此背景图片不会被加载</p>
+
+
+<!--但如果在其父元素设置none-->
+<div class="none">
+    <!--    img标签仍会被渲染-->
+    <img src="../images/a6lgq-kfz0r.webp" alt="a6lgq-kfz0r.webp" class="img">
+    <!--    不会被渲染-->
+    <div class="img-box"></div>
+</div>
+
+<hr>
+<p>以上也切合了图片的加载顺序，img标签中的图片先加载，background-image后加载</p>
+<p>因为img是dom节点，创建dom树为第一顺序，创建styleRules为第二顺序</p>
+
+</body>
+</html>

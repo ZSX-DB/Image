@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo2</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!--<img src="../images/zelda_1.jpg" alt="zelda_1">-->
+<!--<img src="../images/zelda_2.jpg" alt="zelda_2">-->
+<!--<img src="../images/zombie_1.jpg" alt="zombie_1">-->
+
+<img data-src="../images/GULULU-milk.png" alt="GULULU-milk">
+<img data-src="../images/a6lgq-kfz0r.webp" alt="a6lgq-kfz0r">
+<img data-src="../images/agkzk-wwcwq.webp" alt="agkzk-wwcwq">
+<img data-src="../images/anboa-kk9n9.webp" alt="anboa-kk9n9">
+<img data-src="../images/zelda_1.jpg" alt="zelda_1">
+<img data-src="../images/zelda_2.jpg" alt="zelda_2">
+<img data-src="../images/zombie_1.jpg" alt="zombie_1">
+
+<script>
+
+
+
+    function lazyLoad() {
+        // 可视屏幕高度
+        let ch = document.documentElement.clientHeight
+        // 判断在不在可视屏幕内，若在进行加载
+        const inScreen=ele=>{
+            let bound=ele.getBoundingClientRect()
+            return bound.top <= ch
+        }
+        let images = document.getElementsByTagName('img')
+        let len=images.length
+        for(let i=0;i<len;i++){
+            if(inScreen(images[i])){
+                images[i].src = images[i].getAttribute('data-src')
+            }
+        }
+    }
+
+    // onload是页面加载完触发
+    window.onload = window.onscroll = function () {
+        lazyLoad()
+    }
+
+
+</script>
+
+
+</body>
+</html>
