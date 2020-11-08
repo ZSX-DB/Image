@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo2</title>
+    <style>
+
+        img.error {
+            display: inline-block;
+            vertical-align: top;
+            transform: scale(1);
+        }
+        img.error::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #f5f5f5 url(../images/exception.svg) no-repeat center / 50% 50%;
+        }
+        img.error::after {
+            content: attr(alt);
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            font-size: 12px;
+            line-height: 2;
+            text-align: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: #fff;
+            background-color: rgba(0,0,0,.5);
+        }
+
+        .img{
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--浏览器自带的图片异常样式不太美观，因此进行自定义处理-->
+
+<img class="img" src="../images/zelda_1.jpg" alt="not fount">
+
+<!--增加错误处理，改变src的地址-->
+<img class="img"
+     src=""
+     alt="not fount"
+     onerror="this.classList.add('error')">
+
+<img class="img" src="../images/zelda_2.jpg" alt="not fount">
+
+<hr>
+
+<p>优化</p>
+<p>
+    1、当路径出错时，进行错误处理，如果使用外链，当对应的链接也没有时，仅会报404 Not Found的错误，不会导致闪屏
+</p>
+<p>
+    2、可以显示alt信息
+</p>
+
+
+
+</body>
+</html>

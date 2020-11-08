@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <style>
+
+        /*这里只需要页面的图片文件名即可*/
+        img[src$='exception.svg'] {
+            object-fit: contain;
+        }
+
+        .img{
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--浏览器自带的图片异常样式不太美观，因此进行自定义处理-->
+
+<img class="img" src="../images/zelda_1.jpg" alt="not fount">
+
+<!--增加错误处理，改变src的地址-->
+<!--当路径出错时，会不断进行错误处理-->
+<!--如果使用外链，当对应的链接也没有时，就可能导致页面卡死-->
+<img class="img"
+     src=""
+     alt="not fount"
+     onerror="this.src='../images/exception.svg'">
+
+<img class="img" src="../images/zelda_2.jpg" alt="not fount">
+
+<hr>
+
+<p>上面的做法缺点</p>
+<p>
+    1、当路径出错时，会不断进行错误处理，如果使用外链，当对应的链接也没有时，会不断地请求图片，导致闪屏
+</p>
+<p>
+    2、无法显示alt信息
+</p>
+
+
+
+</body>
+</html>
