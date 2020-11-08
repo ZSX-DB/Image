@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>img标签结合js</title>
+    <style>
+
+        #img {
+            width: 1000px;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+<img src="../images/zombie_1.jpg" alt="zombie_1.jpg" id="img">
+
+<script>
+
+    // 改变img标签的src并不容易，因此使用background-image
+    let img=document.getElementById('img')
+    console.log('img标签src',img.src)
+
+</script>
+
+</body>
+</html>

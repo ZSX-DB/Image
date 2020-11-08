@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <title>background-image标签结合js</title>
     <style>
-        #img {
-            width: 1000px;
-            object-fit: cover;
-        }
 
-        #img-box {
+        #bg-img {
             width: 1000px;
             height: 500px;
             background-size: cover;
@@ -27,22 +23,16 @@
 </head>
 <body>
 
-<!--<img src="../images/zombie_1.jpg" alt="zombie_1.jpg" id="img">-->
-
-<div id="img-box" class="img-src1"></div>
+<div id="bg-img" class="img-src1"></div>
 
 <script>
 
-    // 改变img标签的src并不容易，因此使用background-image
-    // let img=document.getElementById('img')
-    // console.log('img标签src',img.src)
-
-    let imgBox = document.getElementById('img-box')
+    let bGImg = document.getElementById('bg-img')
 
     // 当click事件发生时，zelda_2.jpg才开始加载
-    imgBox.addEventListener('click', () => {
-        imgBox.classList.remove('img-src1')
-        imgBox.classList.add('img-src2')
+    bGImg.addEventListener('click', () => {
+        bGImg.classList.remove('img-src1')
+        bGImg.classList.add('img-src2')
     })
 
 
