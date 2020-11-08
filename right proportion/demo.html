@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style>
+
+        body {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+        }
+        
+        .box-style {
+            margin: 10px auto;
+            width: 1280px;
+            height: 960px;
+            border: 10px solid #000;
+        }
+
+        /*使用object-fit（适应好，设置方便）*/
+        .fit-cover {
+            object-fit: cover;
+        }
+
+        .fit-contain {
+            object-fit: contain;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /*使用max(推荐使用)*/
+        .img-size {
+            max-width: 1280px;
+            max-height: 960px;
+        }
+
+        /*使用background的属性*/
+        .box-bg {
+            background-image: url(../images/wallhaven-g8g9o7.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>任何情况下优先使用object-fit属性</h1>
+
+<img class="box-style fit-cover"
+     src="../images/zelda_1.jpg"
+     alt="缩略图">
+<img class="box-style fit-contain"
+     src="../images/zelda_2.jpg"
+     alt="缩略图">
+
+<h1>设置max适用于不支持object-fit的情况</h1>
+<div class="box box-style">
+    <img class="img-size"
+         src="../images/zombie_1.jpg"
+         alt="缩略图">
+</div>
+
+<h2>适用与不能使用img标签的情况</h2>
+<div class="box-bg box-style"></div>
+
+</body>
+</html>

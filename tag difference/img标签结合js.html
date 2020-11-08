@@ -14,13 +14,15 @@
 </head>
 <body>
 
-<img src="../images/zombie_1.jpg" alt="zombie_1.jpg" id="img">
+<img src="../images/zelda_1.jpg" alt="img" id="img">
 
 <script>
 
-    // 改变img标签的src并不容易，因此使用background-image
-    let img=document.getElementById('img')
-    console.log('img标签src',img.src)
+    let img = document.getElementById('img')
+    img.addEventListener('click',()=>{
+        img.src = '../images/zombie_1.jpg'
+    })
+
 
 </script>
 

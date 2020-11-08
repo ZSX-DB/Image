@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <title>demo1</title>
     <style>
-        .img{
+        .img {
             width: 1000px;
             object-fit: cover;
         }
+
+        .block-img-box img {
+            /*inline-block不生效*/
+            display: block;
+        }
+
     </style>
 </head>
 <body>
@@ -16,6 +22,14 @@
 <img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
 <img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
 <img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
+
+
+<!--两个img标签存在间距，有时可能会影响布局，使用display: block 来消除-->
+<div class="block-img-box">
+    <img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
+    <img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
+    <img src="../images/zombie_1.jpg" alt="zombie_1" class="img">
+</div>
 
 </body>
 </html>
