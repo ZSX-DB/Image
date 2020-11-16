@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 80vw;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<!--对于不同设备采用不同大小的图片，可以优化性能，图片采用了bootstrap的命名风格-->
+<picture>
+    <!--    phone-->
+    <source srcset="../images/sea-xs.jpg" media="(max-width: 768px)">
+    <!--    pad-->
+    <source srcset="../images/sea-sm.jpg" media="(min-width: 768px) and (max-width: 1024px)">
+    <!--    large screen-->
+    <img src="../images/sea-lg.jpg" alt="sea">
+</picture>
+
+</body>
+</html>
